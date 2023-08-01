@@ -1,0 +1,30 @@
+/*flexbox and animations*/
+.selected {
+    border: 3px solid red;
+    margin: 10px;
+}
+
+.navbar {
+    background-color: #f4d35e; /* warm yellow color for background */
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1); /* subtle shadow for depth */
+}
+
+.navbar a {
+    color: #f95738; /* warm reddish-orange for contrast */
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    color: #ee964b; /* slightly lighter color on hover */
+}
+
+.navbar img {
+    height: 40px; /* adjust as needed */
+}

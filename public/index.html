@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>RemindMe</h1>
+<nav class="navbar">
+    <div>
+        <a class="title_name" href="./index.html">Hello Beautiful</a>
+        <a class="title_name" href="./dates.html">What Day is Today?</a>
+        <a class="title_name" href="./mood.html">How I Feel Today</a>
+        <a class="title_name" href="./family.html">My Family</a>
+    </div>
+</nav>
+    </header>
+   <main> 
+    <section id="greeting_name">Hello `${name}`</section>
+    <div id="regular-date">Today is `${date}`</div>
+    <div id="special-date">Remember that today is special because `${event}`</div>
+    <section class="task-manager">
+        <aside>
+            <h3>Things to do today</h3>
+            <div id="toDoList">
+            </div>
+            <div>
+                <form id="taskForm">
+                <h3>Write Something You Want to Remember Later</h3>
+                <label for="newTasks">Tasks</label>
+                <input type="text" id="newTasks" placeholder="Write it here">
+                <label>Click the Yellow Submit Button</label>
+                <button id="submitBtn">Submit</button>
+                </form>
+            </div>
+        </aside>
+    </section>
+    <section class="mood_choices">
+        <button onclick="happyCount()">
+        <img id="happy-face" src="happy.png" alt="happy face color yellow">
+         </button>
+        <img id="ok-face" src="OK.png" alt="smiley face color green">
+        <img id="sad-face" src="sad.png" alt="sad face color blue">
+        <img id="angry-face" src="angry.png" alt="angry face color red">
+    </section>
+    
+</main>
+
+<footer>
+
+</footer>
+
+
+
+<script src="main.js"></script>
+<script src="mood.js"></script>
+
+</body>
+</html>
