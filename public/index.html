@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Capstone Home</title>
     <link rel="stylesheet" href="styles.css">
+
+        <title>Calendar</title>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
 </head>
 <body>
     <header>
@@ -19,44 +25,72 @@
 </nav>
     </header>
    <main> 
-    <section id="greeting_name">Hello `${name}`</section>
+
+    <section id="greeting_name">
+        <h1>Hello your name is</h1>
+        <h1>ALICIA</h1>
     <div id="regular-date">Today is `${date}`</div>
+    <div id="datepicker"></div>
     <div id="special-date">Remember that today is special because `${event}`</div>
+    </section>
+
     <section class="task-manager">
         <aside>
             <h3>Things to do today</h3>
+            <button id="todoBtn">What do I have to do today?</button>
+           
             <div id="toDoList">
             </div>
+           
             <div>
                 <form id="taskForm">
                 <h3>Write Something You Want to Remember Later</h3>
-                <label for="newTasks">Tasks</label>
-                <input type="text" id="newTasks" placeholder="Write it here">
-                <label>Click the Yellow Submit Button</label>
-                <button id="submitBtn">Submit</button>
+                <input type="text" id="taskInput" placeholder="Write it here">
+                <input id="dateInput" type="date">
+
+                
+                <label>Click the Submit Button</label>
+                <button id="createTask()">Submit</button>
+
+                <div id="taskContainer"></div>
+
+                
                 </form>
             </div>
         </aside>
     </section>
+
     <section class="mood_choices">
+        <h1>Choose the image that represents how you feel today</h1>
         <button onclick="happyCount()">
         <img id="happy-face" src="happy.png" alt="happy face color yellow">
          </button>
+        <button onclick="okCount()">
         <img id="ok-face" src="OK.png" alt="smiley face color green">
+        </button>
+        <button onclick="sadCount()">
         <img id="sad-face" src="sad.png" alt="sad face color blue">
+        </button>
+        <button onclick="angryCount()">
         <img id="angry-face" src="angry.png" alt="angry face color red">
+        </button>
     </section>
-    
-</main>
+    </main>
 
-<footer>
+<footer class="index-footer">
 
 </footer>
 
 
-
+<!-- <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script> -->
 <script src="main.js"></script>
 <script src="mood.js"></script>
+
+<script>
+    $( function() {
+        $( "#datepicker" ).datepicker();
+    } );
+    </script>
 
 </body>
 </html>
