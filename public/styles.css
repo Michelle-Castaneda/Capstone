@@ -115,5 +115,16 @@ footer {
 }
 
 img {
-    border-radius: 50%;
+    width: 100px; /* Sets the size of the image */
+    height: 100px; /* Sets the size of the image */
+    border-radius: 50%; /* Makes the image circular */
+    margin: 10px; /* Adds space around the image */
+    animation: spin 4s linear infinite; /* Adds a spinning motion */
+    object-fit: cover; /* Ensures the image covers the entire area */
+}
+
+/* Keyframes for spin animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

@@ -8,12 +8,12 @@ app.use(cors())
 //endpoints
 const{
     seed,
-    routine,
+    getRoutine,
     tasks
 } = require ('./controller.js')
 
 //EXAMPLES
-app.get("/api/routine", getRoutine);
+app.get("/routine", getRoutine);
 //app.get("/api/fortune", getFortune);
 // app.put("/api/travelideas/:id", updateTravelIdeas);
 // app.delete("/api/travelideas/:id", deleteTravelIdeas);

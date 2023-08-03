@@ -1,10 +1,10 @@
 const loveNotes = [
-    'Your Family Loves you', 
-    "We love you", 
-    "Today is a beautiful day",
-    "Your family cherishes you", 
-    "Call Vincent he misses you", 
-    "Call Michelle she loves you"
+    'Your Family Loves you Alicia', 
+    "Alicia! We love you ", 
+    "Alicia, go outside it is a beautiful day",
+    "Your family cherishes you Alicia", 
+    "Alicia, call Vincent he misses you", 
+    "Alicia, call Michelle she loves you"
 ]
 
 let loveNote = document.getElementById('love-note-btn');

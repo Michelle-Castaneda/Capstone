@@ -11,12 +11,12 @@ const sequelize = new Sequelize(CONNECTION_STRING, {
 });
 
 
-
-
 module.exports = {
     seed: (req, res) => {
         sequelize.query(`
-        
+        DROP TABLE IF EXISTS routine;
+        DROP TABLE IF EXISTS tasks;
+
         CREATE TABLE routine (
           routine_id SERIAL PRIMARY KEY,
           routine_description VARCHAR(300),
@@ -28,13 +28,21 @@ module.exports = {
           task_description VARCHAR(200),
           task_date TIMESTAMP,
           task_status VARCHAR(50)
-        )
+        );
 
         INSERT INTO routine (routine_description,routine_frequency)  
           VALUES
-          ('Read a book','Daily')
-          ('Go for a walk','Daily')
-          ('Attend music theraphy session','Weekly')
+          ('Take Medicine','Daily'),
+          ('Go for a walk','Daily'),
+          ('Attend music theraphy session','Weekly'),
+          ('Cook simple meal','Daily');
+         
+          INSERT INTO tasks(task_description,task_date,task_status)
+          VALUES
+          ('Watch Tv Show',NULL,'Not Started'),
+          ('Read a book',NULL, 'Completed'),
+          ('Practice Yoga',NULL, 'In Progress'),
+          ('Drawing time',NULL, 'Not Started');
 
         `).then(() => {
           console.log('DB seeded!')
@@ -69,8 +77,8 @@ module.exports = {
 
   sequelize.query(`
   INSERT INTO routine(routine_description, routine_frequency)
-  VALUES ('${routine_description}', '${routine_frequency}'}' 
-  ) RETURNING *
+  VALUES ('${routine_description}', '${routine_frequency}') 
+  RETURNING *
   `)
   .then(dbRes => {
     res.status(200).send(dbRes[0])
@@ -92,9 +100,9 @@ deleteRoutine:(req,res) => {
 
   sequelize.query(`
       DELETE FROM routine 
-      WHERE id = ${routine_id};
+      WHERE routine_id = ${routine_id};
   `)
   .then(dbRes => res.status(200).send(dbRes[0]))
   .catch(err => res.status(500).send(err))
-}
+},
 }

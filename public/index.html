@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Capstone Home</title>
     <link rel="stylesheet" href="styles.css">
-
-        <title>Calendar</title>
-        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
 </head>
 <body>
@@ -18,7 +16,6 @@
 <nav class="navbar">
     <div>
         <a class="title_name" href="./index.html">Hello Beautiful</a>
-        <a class="title_name" href="./dates.html">What Day is Today?</a>
         <a class="title_name" href="./mood.html">How I Feel Today</a>
         <a class="title_name" href="./family.html">My Family</a>
     </div>
@@ -35,47 +32,45 @@
     </section>
 
     <section class="task-manager">
-        <aside>
-            <h3>Things to do today</h3>
             <button id="todoBtn">What do I have to do today?</button>
-            <div id="toDoList">
-            </div>
+            <h3>Things to do today</h3>
+            <section id="toDoList"></section>
            
             <div>
                 <form id="taskForm">
                 <h3>Write Something You Want to Remember Later</h3>
-                task_description
                 <input type="text" id="taskInput" placeholder="Write it here">
-                <input type="timestamp" id="taskDate" placeholder="Put the date here">
                 <input id="dateInput" type="date">
-                <form id="taskStatus">
-                    <div>
-                      <input type="checkbox" id="completed" name="taskStatus" value="completed">
-                      <label for="completed">Completed</label>
-                    </div>
-                  
-                    <div>
-                      <input type="checkbox" id="inProgress" name="taskStatus" value="inProgress">
-                      <label for="inProgress">In Progress</label>
-                    </div>
-                  
-                    <div>
-                      <input type="checkbox" id="toBeDone" name="taskStatus" value="toBeDone">
-                      <label for="toBeDone">To Be Done</label>
-                    </div>
-                  </form>
-                  
-
+                
+                
+                <section id="taskStatus">
+                    <form id="taskStatus">
+                        <div>
+                            <input type="radio" id="completed" name="taskStatus" value="completed">
+                            <label for="completed">Completed</label>
+                        </div>
+                      
+                        <div>
+                            <input type="radio" id="inProgress" name="taskStatus" value="inProgress">
+                            <label for="inProgress">In Progress</label>
+                        </div>
+                      
+                        <div>
+                            <input type="radio" id="toBeDone" name="taskStatus" value="toBeDone">
+                            <label for="toBeDone">Not Started</label>
+                        </div>
+                    </form>
+                    
+                </section>
                 
                 <label>Click the Submit Button</label>
-                <button id="createTask()">Submit</button>
+                <button id="createTask">Submit</button>
 
                 <div id="taskContainer"></div>
 
                 
                 </form>
             </div>
-        </aside>
     </section>
 
     <section class="mood_choices">
@@ -100,7 +95,7 @@
 </footer>
 
 
-<!-- <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
 <script src="main.js"></script>
 <script src="mood.js"></script>
 
