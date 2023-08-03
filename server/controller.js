@@ -17,79 +17,84 @@ module.exports = {
     seed: (req, res) => {
         sequelize.query(`
         
-        CREATE table routine (
-          routine_id serial primary key,
-          routine_description,
-          routine_frequency
-
-
+        CREATE TABLE routine (
+          routine_id SERIAL PRIMARY KEY,
+          routine_description VARCHAR(300),
+          routine_frequency VARCHAR(50)
         );
 
-        INSERT INTO routine ()  
+        CREATE TABLE tasks(
+          task_id SERIAL PRIMARY KEY,
+          task_description VARCHAR(200),
+          task_date TIMESTAMP,
+          task_status VARCHAR(50)
+        )
+
+        INSERT INTO routine (routine_description,routine_frequency)  
+          VALUES
+          ('Read a book','Daily')
+          ('Go for a walk','Daily')
+          ('Attend music theraphy session','Weekly')
 
         `).then(() => {
           console.log('DB seeded!')
           res.sendStatus(200)
       }).catch(err => console.log('error seeding DB', err))
     },
-  }
+    createTask:(req,res) => {
+      const {task_description, task_date, task_status} = req.body
 
+      sequelize.query(`
+      INSERT INTO tasks(task_description, task_date, task_status)
+      VALUES ('${task_description}', '${task_date}', '${task_status}' 
+      ) RETURNING *
+      `)
+      .then(dbRes => {
+        res.status(200).send(dbRes[0])
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(400).send(err)
+    })
+  },
+  getTasks:(req, res) => {
+    sequelize.query(`
+    SELECT * FROM tasks;
+    `)
+    .then(dbRes => res.status(200).send(dbRes[0]))
+    .catch(err => res.status(500).send(err))
+},  
+  createRoutine:(req,res) => {
+  const {routine_description, routine_frequency} = req.body
 
-// //Database
-// const db = [
-//     {
-//     routine_id: ,
-// 	user_id:,
-// 	routine_description: 'Read a book',
-// 	routine_days: 'Daily'
-//     },
-//     {
-//         routine_id: ,
-//         routine_description: 'Read a book',
-//         routine_days: 'Daily'
-//     },
-//     {
-//         routine_id: ,
-//         routine_description: 'Go for a Walk',
-//         routine_days: 'Daily'
-//     }
+  sequelize.query(`
+  INSERT INTO routine(routine_description, routine_frequency)
+  VALUES ('${routine_description}', '${routine_frequency}'}' 
+  ) RETURNING *
+  `)
+  .then(dbRes => {
+    res.status(200).send(dbRes[0])
+})
+.catch(err => {
+  console.log(err)
+  res.status(400).send(err)
+})
+},
+getRoutine:(req, res) => {
+sequelize.query(`
+SELECT * FROM routine;
+`)
+.then(dbRes => res.status(200).send(dbRes[0]))
+.catch(err => res.status(500).send(err))
+},  
+deleteRoutine:(req,res) => {
+  const {routine_id} = req.params
 
-
-// ]
-
-// module.exports = {
-//     addTask: 
-
-
-// }
-
-//CRUD module.exports
-// const Reminder = require('../models/Reminder'); // Import the Reminder model
-
-// exports.getAllReminders = (req, res) => {
-//     // Fetch all reminders for a user
-//     Reminder.findAll({ where: { userId: req.params.userId } })
-//         .then(reminders => res.send(reminders))
-//         .catch(err => res.status(400).send(err));
-// };
-
-// exports.createReminder = (req, res) => {
-//     // Create a new reminder
-//     Reminder.create({ ...req.body, userId: req.params.userId })
-//         .then(reminder => res.status(200).send(reminder))
-//         .catch(err => res.status(400).send(err));
-// };
-
-// exports.updateReminder = (req, res) => {
-//     // Update an existing reminder
-//     Reminder.update(req.body, { where: { id: req.params.id, userId: req.params.userId } })
-//         .then(() => res.status(200).send())
-//         .catch(err => res.status(400).send(err));
-// };
-
-// exports.deleteReminder = (req, res) => {
-//     // Delete a specific reminder
-//     Reminder.destroy({ where: { id: req.params.id, userId: req.params.userId } })
-//         .then(() => res.status(200).send())
-//         .catch(err => res.status(400).send(err));
-// };
+  sequelize.query(`
+      DELETE FROM routine 
+      WHERE id = ${routine_id};
+  `)
+  .then(dbRes => res.status(200).send(dbRes[0]))
+  .catch(err => res.status(500).send(err))
+}
+}

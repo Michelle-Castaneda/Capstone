@@ -1,5 +1,9 @@
 console.log("mood.js file is connected")
 
+
+
+
+
 //FEATURE COUNTER WHEN THE MOOD IS SELECTED
 
 let happyCounter = 0;

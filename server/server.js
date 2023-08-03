@@ -6,11 +6,15 @@ app.use(express.json()) //middleware does the conversion of data from json to an
 app.use(cors())
 
 //endpoints
-
+const{
+    seed,
+    routine,
+    tasks
+} = require ('./controller.js')
 
 //EXAMPLES
-// app.get("/api/compliment", getCompliment);
-// app.get("/api/fortune", getFortune);
+app.get("/api/routine", getRoutine);
+//app.get("/api/fortune", getFortune);
 // app.put("/api/travelideas/:id", updateTravelIdeas);
 // app.delete("/api/travelideas/:id", deleteTravelIdeas);
 

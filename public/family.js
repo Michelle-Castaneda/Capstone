@@ -7,18 +7,17 @@ const loveNotes = [
     "Call Michelle she loves you"
 ]
 
-
-let loveNote = document.getElementById('love-note-btn')
+let loveNote = document.getElementById('love-note-btn');
+let noteDisplayDiv = document.getElementById('note-display-div'); // Added line to get the display element
 
 function randomNote() { 
-    Math.floor(Math.random() * loveNotes.length);
+    let randomIndex = Math.floor(Math.random() * loveNotes.length); // You missed assigning the random index to a variable
     return loveNotes[randomIndex];
 }
 
-loveNote.addEventListener('click', randomNote)
-
-
-
+loveNote.addEventListener('click', function() { 
+    noteDisplayDiv.innerText = randomNote(); // Update the text of 'note-display-div' when button is clicked
+});
 
 //document.getElementById('note-display-div').innerText = randomNote;
 

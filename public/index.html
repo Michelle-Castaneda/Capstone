@@ -38,15 +38,33 @@
         <aside>
             <h3>Things to do today</h3>
             <button id="todoBtn">What do I have to do today?</button>
-           
             <div id="toDoList">
             </div>
            
             <div>
                 <form id="taskForm">
                 <h3>Write Something You Want to Remember Later</h3>
+                task_description
                 <input type="text" id="taskInput" placeholder="Write it here">
+                <input type="timestamp" id="taskDate" placeholder="Put the date here">
                 <input id="dateInput" type="date">
+                <form id="taskStatus">
+                    <div>
+                      <input type="checkbox" id="completed" name="taskStatus" value="completed">
+                      <label for="completed">Completed</label>
+                    </div>
+                  
+                    <div>
+                      <input type="checkbox" id="inProgress" name="taskStatus" value="inProgress">
+                      <label for="inProgress">In Progress</label>
+                    </div>
+                  
+                    <div>
+                      <input type="checkbox" id="toBeDone" name="taskStatus" value="toBeDone">
+                      <label for="toBeDone">To Be Done</label>
+                    </div>
+                  </form>
+                  
 
                 
                 <label>Click the Submit Button</label>
