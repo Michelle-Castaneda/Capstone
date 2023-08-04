@@ -15,9 +15,9 @@ function randomNote() {
     return loveNotes[randomIndex];
 }
 
-loveNote.addEventListener('click', function() { 
-    noteDisplayDiv.innerText = randomNote(); // Update the text of 'note-display-div' when button is clicked
-});
+// loveNote.addEventListener('click', function() { 
+//     noteDisplayDiv.innerText = randomNote(); // Update the text of 'note-display-div' when button is clicked
+// });
 
 //document.getElementById('note-display-div').innerText = randomNote;
 

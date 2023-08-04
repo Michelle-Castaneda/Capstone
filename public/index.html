@@ -15,7 +15,7 @@
         <h1>RemindMe</h1>
 <nav class="navbar">
     <div>
-        <a class="title_name" href="./index.html">Hello Beautiful</a>
+        <a class="title_name" href="./index.html">My Activities</a>
         <a class="title_name" href="./mood.html">How I Feel Today</a>
         <a class="title_name" href="./family.html">My Family</a>
     </div>
@@ -32,31 +32,35 @@
     </section>
 
     <section class="task-manager">
-            <button id="todoBtn">What do I have to do today?</button>
-            <h3>Things to do today</h3>
+            <button id="todoBtn">Show My Routine</button>
+            <h3>You must do these activities today</h3>
             <section id="toDoList"></section>
            
             <div>
                 <form id="taskForm">
+                <button id="optionalTaskBtn">Fun things I can do</button>
+                <section id="displayAllTasks"></section>
+
                 <h3>Write Something You Want to Remember Later</h3>
                 <input type="text" id="taskInput" placeholder="Write it here">
+
                 <input id="dateInput" type="date">
                 
                 
-                <section id="taskStatus">
-                    <form id="taskStatus">
+                <section id="statusInputSection">
+                    <form id="statusInput">
                         <div>
-                            <input type="radio" id="completed" name="taskStatus" value="completed">
+                            <input type="radio" id="completed" name="taskStatus" value="Completed">
                             <label for="completed">Completed</label>
                         </div>
                       
                         <div>
-                            <input type="radio" id="inProgress" name="taskStatus" value="inProgress">
+                            <input type="radio" id="inProgress" name="taskStatus" value="In Progress">
                             <label for="inProgress">In Progress</label>
                         </div>
                       
                         <div>
-                            <input type="radio" id="toBeDone" name="taskStatus" value="toBeDone">
+                            <input type="radio" id="toBeDone" name="taskStatus" value="Not Started">
                             <label for="toBeDone">Not Started</label>
                         </div>
                     </form>
@@ -67,37 +71,21 @@
                 <button id="createTask">Submit</button>
 
                 <div id="taskContainer"></div>
-
-                
+            
                 </form>
             </div>
-    </section>
-
-    <section class="mood_choices">
-        <h1>Choose the image that represents how you feel today</h1>
-        <button onclick="happyCount()">
-        <img id="happy-face" src="happy.png" alt="happy face color yellow">
-         </button>
-        <button onclick="okCount()">
-        <img id="ok-face" src="OK.png" alt="smiley face color green">
-        </button>
-        <button onclick="sadCount()">
-        <img id="sad-face" src="sad.png" alt="sad face color blue">
-        </button>
-        <button onclick="angryCount()">
-        <img id="angry-face" src="angry.png" alt="angry face color red">
-        </button>
     </section>
     </main>
 
 <footer class="index-footer">
-
+Call Emergency Service
 </footer>
 
 
 <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
 <script src="main.js"></script>
 <script src="mood.js"></script>
+<script src="family.js"></script>
 
 <script>
     $( function() {

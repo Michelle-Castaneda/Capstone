@@ -9,26 +9,24 @@ app.use(cors())
 const{
     seed,
     getRoutine,
-    tasks
+    getTasks,
+    createTask,
+    //deleteRoutine,
+   // createRoutine,
+    deleteTask,
+    updateTask
 } = require ('./controller.js')
 
-//EXAMPLES
-app.get("/routine", getRoutine);
-//app.get("/api/fortune", getFortune);
-// app.put("/api/travelideas/:id", updateTravelIdeas);
-// app.delete("/api/travelideas/:id", deleteTravelIdeas);
-
 app.post('/seed', seed)
+app.get("/routine", getRoutine);
+//app.delete("/routine/:", deleteRoutine);
+//app/post("/routine", createRoutine);
 
+app.get("/tasks", getTasks);
+app.post("/tasks", createTask);
+app.delete("/tasks/:task_id", deleteTask);
+app.put("/tasks/:task_id", updateTask);
 
-// let database= []
-
-// app.post("/main", (req,res) => {
-//     console.log('test')
-//     console.log(req.body)
-
-//     res.status(200).send(database)
-// });
 
 
 

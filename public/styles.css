@@ -1,130 +1,91 @@
-/* Basic Reset */
-* {
+/* General page styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-body {
-    background-color: #fafafa;
-    color: #212529;
 }
 
 header {
-    background-color: #d1c4e9;
-    color: #311b92;
-    padding: 20px 0;
+    background-color: #008B8B;
+    color: white;
+    padding: 10px 0;
     text-align: center;
-    width: 100%;
 }
 
-h1 {
-    font-size: 2em;
-    margin-bottom: 10px;
-    animation: fadeIn 2s;
-}
-
-@keyframes fadeIn {
-    0% {opacity: 0;}
-    100% {opacity: 1;}
+header h1 {
+    margin: 0;
 }
 
 .navbar {
+    background-color: #008B8B;
     display: flex;
     justify-content: space-around;
-    margin: 20px 0;
-    padding-bottom: 20px;
-    border-bottom: 3px solid #b39ddb;
-    width: 80%;
-    animation: slideIn 2s;
-}
-
-@keyframes slideIn {
-    0% {transform: translateX(-100%);}
-    100% {transform: translateX(0);}
+    padding: 10px 0;
 }
 
 .navbar a {
-    color: #4527a0;
+    color: white;
     text-decoration: none;
-    font-size: 1.2em;
-    transition: color 0.3s ease-in-out;
 }
 
 .navbar a:hover {
-    color: #311b92;
+    color: #f8f8f8;
 }
 
-.main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 80%;
-    animation: popIn 2s;
-}
-
-@keyframes popIn {
-    0% {transform: scale(0);}
-    100% {transform: scale(1);}
-}
-
-#greeting_name,
-.task-manager,
-.mood_choices {
-    background-color: #ede7f6;
+main {
     padding: 20px;
-    margin-bottom: 20px;
+}
+
+#greeting_name {
     text-align: center;
-    border-radius: 0.25rem;
-    width: 100%;
-    color: #4527a0;
+    margin-bottom: 30px;
 }
 
-#toDoList, #taskContainer {
-    background-color: #d1c4e9;
+#greeting_name h1 {
+    margin: 10px 0;
+}
+
+#regular-date, #special-date {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.task-manager {
+    border: 1px solid #ccc;
+    border-radius: 5px;
     padding: 20px;
-    border-radius: 0.25rem;
-    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
-    color: #311b92;
 }
 
-button {
-    background-color: #9575cd;
-    color: #ffffff;
+#todoBtn, #optionalTaskBtn, #createTask {
+    background-color: #008B8B;
+    color: white;
     border: none;
+    border-radius: 5px;
     padding: 10px 20px;
-    border-radius: 0.25rem;
+    margin: 10px 0;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
 }
 
-button:hover {
-    background-color: #7e57c2;
+#todoBtn:hover, #optionalTaskBtn:hover, #createTask:hover {
+    background-color: #006767;
 }
 
-footer {
-    background-color: #d1c4e9;
-    color: #311b92;
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 20px;
-    position: fixed;
+#taskInput, #dateInput {
     width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#index-footer {
+    background-color: #008B8B;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    left: 0;
     bottom: 0;
-}
-
-img {
-    width: 100px; /* Sets the size of the image */
-    height: 100px; /* Sets the size of the image */
-    border-radius: 50%; /* Makes the image circular */
-    margin: 10px; /* Adds space around the image */
-    animation: spin 4s linear infinite; /* Adds a spinning motion */
-    object-fit: cover; /* Ensures the image covers the entire area */
-}
-
-/* Keyframes for spin animation */
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    width: 100%;
 }

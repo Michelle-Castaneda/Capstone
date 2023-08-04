@@ -34,7 +34,7 @@ module.exports = {
           VALUES
           ('Take Medicine','Daily'),
           ('Go for a walk','Daily'),
-          ('Attend music theraphy session','Weekly'),
+          ('Attend music therapy session','Weekly'),
           ('Cook simple meal','Daily');
          
           INSERT INTO tasks(task_description,task_date,task_status)
@@ -72,6 +72,16 @@ module.exports = {
     .then(dbRes => res.status(200).send(dbRes[0]))
     .catch(err => res.status(500).send(err))
 },  
+deleteTask:(req,res) => {
+  const {task_id} = req.params
+  console.log(task_id)
+  sequelize.query(`
+      DELETE FROM tasks 
+      WHERE task_id = ${task_id};
+  `)
+  .then(dbRes => res.status(200).send(dbRes[0]))
+  .catch(err => res.status(500).send(err))
+},
   createRoutine:(req,res) => {
   const {routine_description, routine_frequency} = req.body
 
@@ -105,4 +115,24 @@ deleteRoutine:(req,res) => {
   .then(dbRes => res.status(200).send(dbRes[0]))
   .catch(err => res.status(500).send(err))
 },
+updateTask:(req,res) => {
+  const taskId = req.params.task_id;
+  const {task_description, task_date, task_status} = req.body;
+
+  sequelize.query(`
+  UPDATE tasks
+  SET
+  task_description= '${task_description}',
+  task_date='${task_date}',
+  task_status='${task_status}'
+  WHERE task_id= '${taskId}';
+  `)
+  .then(dbRes => {
+    res.status(200).send(dbRes[0])
+})
+.catch(err => {
+  console.log(err)
+  res.status(400).send(err)
+})
+}
 }

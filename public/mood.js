@@ -1,6 +1,6 @@
 //console.log("mood.js file is connected")
 
-let taskStatus = document.querySelector('input[name="taskStatus"]:checked').value;
+//let taskStatus = document.querySelector('input[name="taskStatus"]:checked').value;
 
 
 
