@@ -76,6 +76,21 @@ createTasksCard = (tasksArr) => {
         //deleteTaskBtn.setAttribute('onClick', () => deletingTask(task.task_id))
         deleteTaskBtn.addEventListener('click', () => deletingTask(task.task_id)); // deleteTask is called with the task_id
         holdingDivTasks.appendChild(deleteTaskBtn); // add delete button to each task's div
+
+
+        const updateTaskBtn = document.createElement('button');
+        updateTaskBtn.innerText = "Update Task";
+        updateTaskBtn.addEventListener('click', () => {
+            
+            //prompt the user to enter new values for the description, date, and status of the task
+            const newDescription = prompt("Enter new description:");
+            const newDate = prompt("Enter new date:");
+            const newStatus = prompt("Enter new status:");
+
+            updatingTask(task.task_id, newDescription, newDate, newStatus);
+        });
+        holdingDivTasks.appendChild(updateTaskBtn);
+
     });
 }
 
@@ -118,17 +133,16 @@ function creatingTask (e) {
 createTaskBtn.addEventListener('click', creatingTask);
 
 
-function updatingTask (taskId,taskDescription, taskDate, taskStatus) {
-    axios.put('http://localhost:4040/tasks/'+ taskId, {
-        task_id: taskId,
-        task_description: taskInput.value,
-        task_date: dateInput.value,
+function updatingTask (taskId, taskDescription, taskDate, taskStatus) {
+    axios.put('http://localhost:4040/tasks/' + taskId, {
+        task_description: taskDescription,
+        task_date: taskDate,
         task_status: taskStatus
-})
-.then(response => {
-    console.log(response.data);
-})
-.catch(error => {
-    console.error(error);
-});
+    })
+    .then(response => {
+        console.log(response.data);
+    })
+    .catch(error => {
+        console.error(error);
+    });
 }
