@@ -1,106 +1,280 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f8f8;
+    /* Remove flex and centering properties */
+    height: 100vh;
+    /* Full height of the viewport */
     margin: 0;
     padding: 0;
-    line-height: 1.6;
+    background-color: #f5f5f5;
+ 
 }
 
-header {
-    background-color: #008B8B;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2.5em;
-}
-
-.navbar {
-    background-color: #008B8B;
+#center-container {
     display: flex;
-    justify-content: space-evenly;
-    padding: 20px 0;
+    justify-content: center;
+    align-items: center;
+    height: 30vh; 
+    animation: slideInLeft 3s both;
 }
 
-.navbar a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.2em;
-    transition: color 0.3s ease;
-}
-
-.navbar a:hover {
-    color: #f8f8f8;
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 #greeting_name {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 40vh;
+    padding: 20px;
+    background-color:orange;
+    opacity: 1;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); /* Box shadow for depth */
+    }
 
+#greeting_name h1 {
+    color: #fff;
+    font-size: 3rem;
     text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for depth */
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeInDown 1s both;
+    position: relative;
+}
+
+
+
+
+.remindme {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 48px;
+    font-weight: bold;
     color: #333;
+    letter-spacing: 2px;
 }
 
-#greeting_name h1:first-child {
-    font-size: 2em;
-    margin-bottom: 0.5em;
+.navbar {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;    
 }
 
-#greeting_name h1:last-child {
-    font-size: 4em;
-    color: #008B8B;
-    text-transform: uppercase;
-    animation: glow 2s ease-in-out infinite;
+.navbar a.title_name {
+    margin: 0 20px;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 18px;
 }
+
+.navbar a.title_name:hover {
+    color: orange;
+}
+
+#emergencylogo {
+    width: 70px;
+    height: 70px;
+    animation: bounce 2s infinite;
+    margin-left: 759px;
+}
+
+#sunflowerlogo {
+    width: 70px;
+    height: 70px;
+}
+/* 
+#sunlogo {
+    width: 70px;
+    height: 70px;
+    margin-left: 1000px;
+} */
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 
 #calendar_section {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    background-color: white;
+    background-color: #f5f5f5;
     padding: 20px;
-    margin: 20px auto;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    max-width: 800px;
-}
-
-#calendar_section div {
-    margin: 20px 0;
-    color: #333;
-    font-size: 1.2em;
-}
-
-#regular-date, #special-date {
-    background-color: #008B8B;
-    color: white;
-    padding: 15px;
     border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#regular-date {
+    display: flex;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    align-items: center;
 }
 
 #datepicker {
+    width: 200px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#taskForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin: 20px;
+    padding: 20px;
     background-color: #fff;
-    border: 1px solid #ccc;
     border-radius: 5px;
-    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
-#taskInput, #dateInput {
+#taskForm h3 {
+    margin-bottom: 10px;
+}
+
+#taskForm input[type="text"], 
+#taskForm input[type="date"],
+#taskForm #statusInputSection {
     width: 100%;
+    margin-bottom: 20px;
     padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
     border-radius: 5px;
 }
 
-#index-footer {
-    background-color: #008B8B;
-    color: white;
+#taskForm button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+}
+
+#taskForm button:hover {
+    transform: scale(1.1);
+}
+
+#statusInputSection {
+    display: flex;
+    justify-content: space-around;
+}
+
+#statusInputSection div {
+    display: flex;
+    align-items: center;
+}
+
+button#todoBtn {
+    padding: 10px 20px;
+    margin: 20px 0;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+}
+
+button#todoBtn:hover {
+    transform: scale(1.1);
+}
+
+h3 {
+    margin-bottom: 10px;
+}
+
+section#toDoList {
+    width: 80%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+
+button#love-note-btn {
+    padding: 10px 20px;
+    border: none;
+    background-color: #ff69b4; /* Hot pink background */
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 50px; /* Rounded borders */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+    animation: bounce 2s infinite; /* Bouncing animation */
+}
+
+button#love-note-btn:hover {
+    transform: scale(1.1);
+    background-color: #ff1493; /* Dark pink background on hover */
+}
+
+#note-display-div {
+    margin-top: 20px;
+    width: 80%;
+    padding: 20px;
+    background-color: #fff; 
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
     text-align: center;
-    padding: 20px
+    font-size: 24px;
+    color: #333;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}

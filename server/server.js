@@ -4,6 +4,7 @@ const app = express()
 
 app.use(express.json()) //middleware does the conversion of data from json to and object
 app.use(cors())
+app.use(express.static('public'))
 
 //endpoints
 const{

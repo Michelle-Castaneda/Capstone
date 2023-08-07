@@ -1,33 +1,32 @@
-//console.log("mood.js file is connected")
+console.log("mood.js file is connected")
 
-//let taskStatus = document.querySelector('input[name="taskStatus"]:checked').value;
+// COUNTER FEATURE WHEN THE MOOD IS SELECTED
 
+//find the target btn in HTML
+let happyBtn = document.querySelector('#happy-face');
+let okBtn = document.querySelector('#ok-face');
+let sadBtn = document.querySelector('#sad-face');
+let angryBtn = document.querySelector('#angry-face');
 
+let counters = {
+  happy: 0,
+  ok: 0,
+  sad: 0,
+  angry: 0
+}
 
+function incrementCounter(mood) {
+  return function() {
+    counters[mood]++;
+    document.getElementById(`${mood}-counter`).textContent = counters[mood];
+    console.log(`${mood}-counter`, counters[mood]);
+  }
+}
 
-//FEATURE COUNTER WHEN THE MOOD IS SELECTED
-
-// let happyCounter = 0;
-
-// //when the happyCount is clicked, increment happyCount++
-
-// //find the target btn in HTML
-// let happyBtn = document.querySelector('#happy-face')
-
-// function happyCount() {
-//     happyCounter++;
-//     let selectedface = document.getElementById('happy-face-mood');
-//     if (selectedface.classList.contains('selected')) {
-//         selectedface.classList.remove('selected');
-//     } else {
-//         selectedface.classList.add('selected');
-//     }
-//     console.log(happyCounter);
-// }
-
-//combine the selector(target) with the callback function
-//happyBtn.addEventListener('click', happyCount);
-
+happyBtn.addEventListener('click', incrementCounter('happy'));
+okBtn.addEventListener('click', incrementCounter('ok'));
+sadBtn.addEventListener('click', incrementCounter('sad'));
+angryBtn.addEventListener('click', incrementCounter('angry'));
 
 //“Why do you feel like this?”
 

@@ -58,9 +58,11 @@ optionalTaskBtn.addEventListener('click', (e) => {
 
 
 createTasksCard = (tasksArr) => { 
+    console.log(tasksArr)
     displayAllTasks.innerHTML = "";
     tasksArr.forEach(task => { 
         const holdingDivTasks = document.createElement('div')
+        holdingDivTasks.setAttribute('id', `divTask-${task.task_id}`)
         holdingDivTasks.innerHTML = `
         <ul> 
             <li>${task.task_description}</li>
@@ -74,15 +76,19 @@ createTasksCard = (tasksArr) => {
         deleteTaskBtn.innerText = "Delete Task";
         console.log(task.task_id)
         //deleteTaskBtn.setAttribute('onClick', () => deletingTask(task.task_id))
-        deleteTaskBtn.addEventListener('click', () => deletingTask(task.task_id)); // deleteTask is called with the task_id
+        deleteTaskBtn.addEventListener('click', (event) => {
+            event.preventDefault()
+            deletingTask(task.task_id)
+            const divToRemove = document.getElementById(`divTask-${task.task_id}`)
+            divToRemove.remove()
+        });
         holdingDivTasks.appendChild(deleteTaskBtn); // add delete button to each task's div
 
 
         const updateTaskBtn = document.createElement('button');
         updateTaskBtn.innerText = "Update Task";
-        updateTaskBtn.addEventListener('click', () => {
-            
-            //prompt the user to enter new values for the description, date, and status of the task
+        updateTaskBtn.addEventListener('click', (event) => {
+            event.preventDefault()
             const newDescription = prompt("Enter new description:");
             const newDate = prompt("Enter new date:");
             const newStatus = prompt("Enter new status:");
@@ -126,11 +132,48 @@ function creatingTask (e) {
         task_status: taskStatus
     }
     axios.post('http://localhost:4040/tasks', bodyNewTask)
-    .then(res => createTasksCard(res.data))
+    .then(res => {
+        console.log(res.data)
+            createTasksCard(res.data)
+    })
     .catch(err => console.error(err))
 }
 
 createTaskBtn.addEventListener('click', creatingTask);
+
+function createNewTaskCard(task) {
+        const holdingDivTasks = document.createElement('div')
+        holdingDivTasks.innerHTML = `
+        <ul> 
+            <li>${task.task_description}</li>
+            <li>${task.task_date}</li>
+            <li>${task.task_status}</li>
+        </ul>
+        `
+        displayAllTasks.appendChild(holdingDivTasks);
+
+        const deleteTaskBtn = document.createElement('button');
+        deleteTaskBtn.innerText = "Delete Task";
+        console.log(task.task_id)
+        //deleteTaskBtn.setAttribute('onClick', () => deletingTask(task.task_id))
+        deleteTaskBtn.addEventListener('click', () => deletingTask(task.task_id)); // deleteTask is called with the task_id
+        holdingDivTasks.appendChild(deleteTaskBtn); // add delete button to each task's div
+
+
+        const updateTaskBtn = document.createElement('button');
+        updateTaskBtn.innerText = "Update Task";
+        updateTaskBtn.addEventListener('click', () => {
+            
+            //prompt the user to enter new values for the description, date, and status of the task
+            const newDescription = prompt("Enter new description:");
+            const newDate = prompt("Enter new date:");
+            const newStatus = prompt("Enter new status:");
+
+            updatingTask(task.task_id, newDescription, newDate, newStatus);
+        });
+        holdingDivTasks.appendChild(updateTaskBtn);
+
+    }
 
 
 function updatingTask (taskId, taskDescription, taskDate, taskStatus) {

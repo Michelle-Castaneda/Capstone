@@ -11,28 +11,39 @@
 
 </head>
 <body>
-    <header>
-        <h1 class="remindme">RemindMe</h1>
-<nav class="navbar">
-    <div>
-        <a class="title_name" href="./index.html">My Activities</a>
-        <a class="title_name" href="./mood.html">How I Feel Today</a>
-        <a class="title_name" href="./family.html">My Family</a>
-    </div>
-</nav>
-    </header>
+        <header>
+            <h1 class="remindme">RemindMe</h1>
+            <img id='sunflowerlogo' src="sunflower-logo.png" alt="sunflower">
+            <!-- <img id="sunlogo" src="sun-logo.png" alt="sun cartoon"> -->
+            
+    <nav class="navbar">
+        <div>
+            <a class="title_name" href="./index.html">My Activities</a>
+            <a class="title_name" href="./mood.html">How I Feel Today</a>
+            <a class="title_name" href="./family.html">My Family</a>
+            
+        </div>
+        
+    </nav>
+    <img id="emergencylogo" src="emergency-logo.png" alt="emergency logo">
+        </header>
+
+    
    <main> 
 
+    <div id="center-container">
     <section id="greeting_name">
-        <h1>Hello your name is</h1>
-        <h1>ALICIA</h1>
+        <h1>Hello Melissa</h1>
     </section>   
+    </div>
 
+    <div>
     <section id="calendar_section">
-    <div id="regular-date">Today is `${date}`</div>
+    <div id="regular-date">This is today's date: </div>
     <div id="datepicker"></div>
-    <div id="special-date">Remember that today is special because `${event}`</div>
     </section>
+    </div>
+
 
     <section class="task-manager">
             <button id="todoBtn">Show My Routine</button>
@@ -66,25 +77,23 @@
                             <input type="radio" id="toBeDone" name="taskStatus" value="Not Started">
                             <label for="toBeDone">Not Started</label>
                         </div>
+                      
                     </form>
-                    
+
+                   
                 </section>
-                
-                <label>Click the Submit Button</label>
-                <button id="createTask">Submit</button>
+                <button id="createTask">Submit</button>      
 
                 <div id="updateTasks">
-
-
-                </div>
-            
-                </form>
             </div>
+        </form>
     </section>
     </main>
 
+
+
 <footer class="index-footer">
-Call Emergency Service
+
 </footer>
 
 

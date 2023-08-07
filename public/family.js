@@ -1,10 +1,10 @@
 const loveNotes = [
-    'Your Family Loves you Alicia', 
-    "Alicia! We love you ", 
-    "Alicia, go outside it is a beautiful day",
-    "Your family cherishes you Alicia", 
-    "Alicia, call Vincent he misses you", 
-    "Alicia, call Michelle she loves you"
+    'Your Family Loves you Melissa', 
+    "Melissa! We love you ", 
+    "Melissa, go outside it is a beautiful day",
+    "Your family cherishes you Melissa", 
+    "Melissa, call Vincent he misses you", 
+    "Melissa, call Michelle she loves you"
 ]
 
 let loveNote = document.getElementById('love-note-btn');
@@ -15,12 +15,9 @@ function randomNote() {
     return loveNotes[randomIndex];
 }
 
-// loveNote.addEventListener('click', function() { 
-//     noteDisplayDiv.innerText = randomNote(); // Update the text of 'note-display-div' when button is clicked
-// });
-
-//document.getElementById('note-display-div').innerText = randomNote;
-
+loveNote.addEventListener('click', function() { 
+    noteDisplayDiv.innerText = randomNote(); // Update the text of note-display-div when button is clicked
+});
 
 
 // function instaMichelle () {
