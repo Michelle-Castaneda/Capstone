@@ -30,8 +30,8 @@ createRoutineCard = (routineArr) => { //takes an array of routines
         const holdingDiv = document.createElement('div')
         holdingDiv.innerHTML = `
         <ul> 
-            <li>${routine.routine_description}</li>
-            <li>${routine.routine_frequency}</li>
+        <div class="description">${routine.routine_description}</div>
+        <div class="frequency">${routine.routine_frequency}</div>
         </ul>
         `
         displaySection.appendChild(holdingDiv); //appends this div to the displaySection
@@ -74,14 +74,11 @@ createTasksCard = (tasksArr) => {
 
         const deleteTaskBtn = document.createElement('button');
         deleteTaskBtn.innerText = "Delete Task";
-        console.log(task.task_id)
-        //deleteTaskBtn.setAttribute('onClick', () => deletingTask(task.task_id))
+        deleteTaskBtn.className = "delete-button";
         deleteTaskBtn.addEventListener('click', (event) => {
             event.preventDefault()
             deletingTask(task.task_id)
-            const divToRemove = document.getElementById(`divTask-${task.task_id}`)
-            divToRemove.remove()
-        });
+           });
         holdingDivTasks.appendChild(deleteTaskBtn); // add delete button to each task's div
 
 
@@ -103,10 +100,14 @@ createTasksCard = (tasksArr) => {
 function deletingTask(taskId) {
     console.log('Deleting Task')
     axios.delete(`http://localhost:4040/tasks/${taskId}`) 
-    .then(res => console.log(res.data)) 
+    .then(res => {
+        let divToRemove = document.getElementById(`divTask-${taskId}`)
+        console.log(divToRemove)
+            divToRemove.remove()
+        console.log(res.data)
+    }) 
     .catch((err) => {
         console.log(err)
-        alert('Error deleting the task')
     });
 }
 
@@ -135,11 +136,20 @@ function creatingTask (e) {
     .then(res => {
         console.log(res.data)
             createTasksCard(res.data)
+
+        taskInput.value = "";
+        dateInput.value = "";
+        statusInputs.forEach(input => input.checked = false);
     })
     .catch(err => console.error(err))
 }
 
 createTaskBtn.addEventListener('click', creatingTask);
+
+
+
+
+
 
 function createNewTaskCard(task) {
         const holdingDivTasks = document.createElement('div')
@@ -183,6 +193,35 @@ function updatingTask (taskId, taskDescription, taskDate, taskStatus) {
         task_status: taskStatus
     })
     .then(response => {
+        const divToUpdate = document.getElementById(`divTask-${taskId}`)
+        divToUpdate.innerHTML = `
+        <ul> 
+            <li>${taskDescription}</li>
+            <li>${taskDate}</li>
+            <li>${taskStatus}</li>
+        </ul>
+        `
+        const deleteTaskBtn = document.createElement('button');
+        deleteTaskBtn.innerText = "Delete Task";
+        deleteTaskBtn.addEventListener('click', (event) => {
+            event.preventDefault()
+            deletingTask(task.task_id)
+            
+        });
+        divToUpdate.appendChild(deleteTaskBtn); // add delete button to each task's div
+
+
+        const updateTaskBtn = document.createElement('button');
+        updateTaskBtn.innerText = "Update Task";
+        updateTaskBtn.addEventListener('click', (event) => {
+            event.preventDefault()
+            const newDescription = prompt("Enter new description:");
+            const newDate = prompt("Enter new date:");
+            const newStatus = prompt("Enter new status:");
+
+            updatingTask(task.task_id, newDescription, newDate, newStatus);
+        });
+        divToUpdate.appendChild(updateTaskBtn);
         console.log(response.data);
     })
     .catch(error => {

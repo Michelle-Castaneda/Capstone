@@ -37,52 +37,52 @@
     </section>   
     </div>
 
-    <div>
+ 
     <section id="calendar_section">
-    <div id="regular-date">This is today's date: </div>
+    <label id="regular-date">This is today's date: </label>
     <div id="datepicker"></div>
     </section>
-    </div>
+  
 
 
-    <section class="task-manager">
+    <div id="container">
+        <h3>You must do these activities today</h3>
+        <section id="toDoList">
             <button id="todoBtn">Show My Routine</button>
-            <h3>You must do these activities today</h3>
-            <section id="toDoList"></section>
-           
+        </section>
+    </div>
+    
+
+    <section class="task-manager">         
             <div>
                 <form id="taskForm">
-                <button id="optionalTaskBtn">Fun things I can do</button>
-                <section id="displayAllTasks"></section>
+                <h3>Write Something You Want to Remember Later</h3>             
+                <button id="optionalTaskBtn">My Tasks</button>
 
-                <h3>Write Something You Want to Remember Later</h3>
+                <section id="displayAllTasks"></section>
+                
                 <input type="text" id="taskInput" placeholder="Write it here">
 
                 <input id="dateInput" type="date">
-                
-                
+                               
                 <section id="statusInputSection">
                     <form id="statusInput">
                         <div>
                             <input type="radio" id="completed" name="taskStatus" value="Completed">
                             <label for="completed">Completed</label>
-                        </div>
-                      
-                        <div>
+                     
                             <input type="radio" id="inProgress" name="taskStatus" value="In Progress">
                             <label for="inProgress">In Progress</label>
-                        </div>
-                      
-                        <div>
+                       
                             <input type="radio" id="toBeDone" name="taskStatus" value="Not Started">
                             <label for="toBeDone">Not Started</label>
                         </div>
                       
                     </form>
 
-                   
+                    <button id="createTask">Submit</button> 
                 </section>
-                <button id="createTask">Submit</button>      
+                     
 
                 <div id="updateTasks">
             </div>

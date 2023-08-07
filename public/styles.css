@@ -1,11 +1,13 @@
 body {
-    /* Remove flex and centering properties */
     height: 100vh;
-    /* Full height of the viewport */
     margin: 0;
     padding: 0;
     background-color: #f5f5f5;
- 
+    background-image: url('sunflower-back.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center center; 
+    background-blend-mode: 
 }
 
 #center-container {
@@ -28,18 +30,18 @@ body {
 }
 
 #greeting_name {
-    padding: 20px;
-    background-color:orange;
+    padding: 5px;
+    background-color:rgb(250, 202, 48);
     opacity: 1;
-    border-radius: 15px; /* Rounded corners */
+    border-radius: 15px;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); /* Box shadow for depth */
     }
 
 #greeting_name h1 {
     color: #fff;
-    font-size: 3rem;
+    font-size: 30px;
     text-align: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for depth */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
 }
 
 
@@ -63,7 +65,8 @@ header {
     transform: translateX(-50%);
     font-size: 48px;
     font-weight: bold;
-    color: #333;
+    color: #bb600c;
+
     letter-spacing: 2px;
 }
 
@@ -132,76 +135,81 @@ header {
     }
 }
 
-
+/*CALENDAR STARTS */
 #calendar_section {
     display: flex;
-    justify-content: space-between;
+    justify-content:center;
     align-items: center;
-    background-color: #f5f5f5;
-    padding: 20px;
-    border-radius: 5px;
+    padding: 10px;
+    background-color: rgba(250, 203, 48, 0.562);
+    border-radius: 25px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+    width: 40%;
+    margin:  auto; }
 
 #regular-date {
-    display: flex;
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
     color: #333;
-    align-items: center;
+    padding: 10px;
+    
 }
 
-#datepicker {
-    width: 200px;
-    height: 30px;
-    border: 1px solid #ccc;
+/* #datepicker {
+    padding: 10px;
+    border: 1px solid #ddd;
     border-radius: 5px;
-    padding: 5px;
+    background-color: #fff;
+    width: 150px;
+}  */
+
+/*CALENDAR ENDS */
+
+
+
+/*TASK MANAGER STARTS*/
+
+body {
+    /* existing styles */
 }
 
-#taskForm {
+.task-manager {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    width: 80%;
-    margin: 20px;
+    margin: auto;
+    max-width: 500px; 
     padding: 20px;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
+#taskForm {
+    width: 100%;
+}
+
 #taskForm h3 {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
     margin-bottom: 10px;
 }
 
 #taskForm input[type="text"], 
-#taskForm input[type="date"],
-#taskForm #statusInputSection {
+#taskForm input[type="date"] {
     width: 100%;
-    margin-bottom: 20px;
     padding: 10px;
-    border: 1px solid #ddd;
     border-radius: 5px;
-}
-
-#taskForm button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border-radius: 5px;
-}
-
-#taskForm button:hover {
-    transform: scale(1.1);
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
 }
 
 #statusInputSection {
     display: flex;
     justify-content: space-around;
+    margin-top: 10px;
 }
 
 #statusInputSection div {
@@ -209,50 +217,95 @@ header {
     align-items: center;
 }
 
-button#todoBtn {
+#statusInputSection div input[type="radio"] {
+    margin-right: 5px;
+}
+
+#taskForm button, #optionalTaskBtn {
     padding: 10px 20px;
-    margin: 20px 0;
     border: none;
-    background-color: #007bff;
+    background-color: #c95b76; /* changing button color */
     color: #fff;
     cursor: pointer;
     transition: all 0.3s ease;
     border-radius: 5px;
+    margin-top: 10px;
 }
 
-button#todoBtn:hover {
-    transform: scale(1.1);
+#taskForm button:hover, #optionalTaskBtn:hover {
+    background-color: #bb600c; /* changing hover color */
+}
+
+#optionalTaskBtn {
+    margin-top: 10px;
+}
+
+/*TASK MANAGER ENDS*/
+
+
+
+
+
+
+/*ROUTINE CONTAINER SECTION START*/
+
+#container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    max-width: 500px;
+    width: 90%;
+    margin: 30px auto;
 }
 
 h3 {
+    color: #333;
+    font-size: 24px;
     margin-bottom: 10px;
 }
 
-section#toDoList {
-    width: 80%;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+#toDoList {
+    margin-top: 20px;
 }
 
+#todoBtn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3fb54b;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 
+#todoBtn:hover {
+    background-color: #133b17;
+}
+
+/*ROUTINE CONTAINER SECTION END*/
+
+
+
+/*LOVE NOTE START*/
 button#love-note-btn {
     padding: 10px 20px;
     border: none;
-    background-color: #ff69b4; /* Hot pink background */
+    background-color: #c95b76; 
     color: #fff;
     font-size: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
-    border-radius: 50px; /* Rounded borders */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+    border-radius: 50px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1); 
     animation: bounce 2s infinite; /* Bouncing animation */
 }
 
 button#love-note-btn:hover {
     transform: scale(1.1);
-    background-color: #ff1493; /* Dark pink background on hover */
+    background-color: hsl(357, 67%, 27%);
 }
 
 #note-display-div {
@@ -278,3 +331,177 @@ button#love-note-btn:hover {
         transform: translateY(-10px);
     }
 }
+
+/*LOVE NOTE END*/
+
+
+
+
+
+/*MOOD TRACKER STARTS*/
+
+body {
+    /* existing styles */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+
+/* Mood Choices Section */
+.mood_choices {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+}
+
+.mood_choices h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 30px;
+    animation: slideInDown 2s both;
+}
+
+.mood_choices button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    animation: bounce 2s infinite;
+}
+
+.mood_choices img {
+    width: 70px;
+    height: 70px;
+    transition: transform 0.3s;
+}
+
+.mood_choices img:hover {
+    transform: scale(1.2);
+    animation: none;
+}
+
+/* Mood Explanation Section */
+section:nth-of-type(2) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    animation: slideInUp 2s both;
+}
+
+section:nth-of-type(2) h3 {
+    font-size: 24px;
+    color: #333;
+    margin-right: 10px;
+}
+
+section:nth-of-type(2) input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 60%;
+}
+
+/* Mood Counter Section */
+section:nth-of-type(3) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    animation: fadeIn 2s both;
+}
+
+section:nth-of-type(3) h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+section:nth-of-type(3) label {
+    font-size: 20px;
+    color: #333;
+    margin-right: 5px;
+}
+
+section:nth-of-type(3) div {
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: fit-content;
+}
+
+/* Footer */
+.mood-footer {
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-top: 1px solid #ccc;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Animations */
+@keyframes slideInDown {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInUp {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+
+/* MOOD TRACKER ENDS*/
