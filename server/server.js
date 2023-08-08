@@ -1,10 +1,15 @@
 const express = require('express')
 const cors = require ('cors')
 const app = express()
+const path = require('path')
 
 app.use(express.json()) //middleware does the conversion of data from json to and object
 app.use(cors())
 app.use(express.static('public'))
+
+app.get('/',(req,res) => {
+res.sendFile(path.join(__dirname,'../public/index.html'))
+})
 
 //endpoints
 const{
