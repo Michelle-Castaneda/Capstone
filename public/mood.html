@@ -11,8 +11,7 @@
     <header>
         <h1 class="remindme">RemindMe</h1>
         <img id='sunflowerlogo' src="sunflower-logo.png" alt="sunflower">
-        <!-- <img id="sunlogo" src="sun-logo.png" alt="sun cartoon"> -->
-        
+             
 <nav class="navbar">
     <div>
         <a class="title_name" href="./index.html">My Activities</a>
@@ -28,6 +27,7 @@
 
     <section class="mood_choices">
         <h1>Choose the image that represents how you feel today</h1>
+        <div class = "mood_buttons">
         <button onclick="happyCount()">
         <img id="happy-face" src="happy.png" alt="happy face color yellow">
          </button>
@@ -40,24 +40,18 @@
         <button onclick="angryCount()">
         <img id="angry-face" src="angry.png" alt="angry face color red">
         </button>
+    </div>
     </section>
 
-    <section>
-        <div>
-            <h3>“Why do you feel like this?”</h3>
-            <input type="text" id="mood-explanation" placeholder="Write here"> 
-        </div>
-    </section>
-
-    <section>
+    <section id="mood-counter-section">
         <h1>Mood Counter</h1>
-        <label>Happy Counter: </label>
+        <label>Happy: </label>
         <div id="happy-counter">0</div>
-        <label>OK Counter: </label>
+        <label>OK: </label>
         <div id="ok-counter">0</div>
-        <label>Sad Counter: </label>
+        <label>Sad: </label>
         <div id="sad-counter">0</div>
-        <label>Angry Counter: </label>
+        <label>Angry: </label>
         <div id="angry-counter">0</div>
 
     </section>
@@ -65,9 +59,9 @@
 </main>
 
 
-<footer class="mood-footer">
-
-</footer>
+    <footer>
+        Michelle Castaneda 2023 Brigth Paths & Perficient
+    </footer>
 
 
 

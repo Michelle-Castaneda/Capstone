@@ -3,8 +3,7 @@ const loveNotes = [
     "Melissa! We love you ", 
     "Melissa, go outside it is a beautiful day",
     "Your family cherishes you Melissa", 
-    "Melissa, call Vincent he misses you", 
-    "Melissa, call Michelle she loves you"
+    "Melissa, call Vincent he misses you"
 ]
 
 let loveNote = document.getElementById('love-note-btn');
@@ -20,6 +19,6 @@ loveNote.addEventListener('click', function() {
 });
 
 
-// function instaMichelle () {
-// 	window.location.href = "https://www.instagram.com/cm_mkt_michelle/"
-// }
+function instaMichelle () {
+	window.location.href = "https://www.instagram.com/cm_mkt_michelle/"
+}
