@@ -11,7 +11,7 @@ const holdingDivTasks = document.getElementById('displayAllTasks')
 
 function routines (e) { //function sends get request to display routines
     e.preventDefault()
-    axios.get('http://localhost:4040/routine')
+    axios.get('http://3.88.181.33/routine')
     .then(res => {
         console.log(res.data);
         createRoutineCard(res.data) //logs the returned data and calls createRoutineCard to display the routines
@@ -43,7 +43,7 @@ createRoutineCard = (routineArr) => { //takes an array of routines
 
 function optionalTask (e) { 
     e.preventDefault()
-    axios.get('http://localhost:4040/tasks')
+    axios.get('http://3.88.181.33/tasks')
     .then(res => {
         console.log(res.data);
         createTasksCard(res.data) 
@@ -99,7 +99,7 @@ createTasksCard = (tasksArr) => {
 
 function deletingTask(taskId) {
     console.log('Deleting Task')
-    axios.delete(`http://localhost:4040/tasks/${taskId}`) 
+    axios.delete(`http://3.88.181.33/tasks/${taskId}`) 
     .then(res => {
         let divToRemove = document.getElementById(`divTask-${taskId}`)
         console.log(divToRemove)
@@ -132,7 +132,7 @@ function creatingTask (e) {
         task_date: dateInput.value,
         task_status: taskStatus
     }
-    axios.post('http://localhost:4040/tasks', bodyNewTask)
+    axios.post('http://3.88.181.33/tasks', bodyNewTask)
     .then(res => {
         console.log(res.data)
             createTasksCard(res.data)
@@ -187,7 +187,7 @@ function createNewTaskCard(task) {
 
 
 function updatingTask (taskId, taskDescription, taskDate, taskStatus) {
-    axios.put('http://localhost:4040/tasks/' + taskId, {
+    axios.put('http://3.88.181.33/tasks/' + taskId, {
         task_description: taskDescription,
         task_date: taskDate,
         task_status: taskStatus
